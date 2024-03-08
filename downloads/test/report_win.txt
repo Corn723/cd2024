@@ -1,0 +1,45 @@
+\documentclass[UTF8]{report}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usepackage{tocbibind}
+\usepackage{hyperref}
+\usepackage{lipsum} % 添加假文套件以生成範例內容
+% 導入 amsmath 以便輸入數學方程式
+\usepackage{amsmath}
+
+% 在 Windows 可以使用系統所安裝的字型
+\setCJKmainfont{標楷體} %設定中文字體
+\newfontfamily\sectionef{Times New Roman}%設定英文字體
+
+% 在 Linux 設定下列字型
+%\setCJKmainfont{MoeStandardKai.ttf}
+%\newfontfamily\sectionef{Nimbus Roman}
+
+\title{ {\huge 國立虎尾科技大學 \\[0.2cm] 機械設計工程系 \\[0.2cm] 協同產品設計實習期中報告} \\[1cm] 
+ODOO PLM 在協同產品設計上的應用 \\[0.2cm] 
+- 以鋼球平衡台系統設計為例}
+\author{作者名1 \\ 
+        作者名2 \\ 
+        作者名3}
+\date{\today}
+
+\begin{document}
+\sectionef %設定英文字體啟用
+
+% 建立報告標題頁
+\maketitle
+
+% 建立摘要頁面
+
+
+\newpage
+
+% 建立章節目錄
+\tableofcontents
+
+% 建立圖表目錄
+\listoffigures
+% 是否該先定義 cite
+
+
+\end{document}
