@@ -1,0 +1,6 @@
+利用Codespaces進行維護倉儲
+打開Codespaces 並先使用chmod u+x init_replit 來讓檔案有權限
+接下來使用./init_replit 讓程式自動跑 (下載各種模組
+再來就可以使用python3 server.py 來執行動態網站了
+python3 -m http.server 可以執行靜態網站
+之後再用 git add + commit + push 即可推回倉儲
