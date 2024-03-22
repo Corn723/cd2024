@@ -22,6 +22,14 @@ git submodule //子模組的東西
 
 xelatex report_win.txt(檔名   //把檔案內的東西轉成PDF
 
+倉儲: <a href="https://github.com/Corn723/cd2024">https://github.com/Corn723/cd2024</a>
+
+網站: <a href="https://corn723.github.io/cd2024">https://corn723.github.io/cd2024</a>
+
+簡報: <a href="https://corn723.github.io/cd2024/reveal">https://corn723.github.io/cd2024/reveal</a>
+
+網誌: <a href="https://corn723.github.io/cd2024/blog">https://corn723.github.io/cd2024/blog</a>
+
 On Replit:
 
 for cmsimde: pip install flask flask_cors bs4 lxml pelican markdown gevent
