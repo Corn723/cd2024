@@ -42,6 +42,7 @@
 
     <link href="./2024-Spring-w8-blog-tutorial.html" rel="canonical" />
 
+        <meta name="description" content="第八周教學內容">
 
         <meta name="author" content="41123135">
 
@@ -53,12 +54,12 @@
 <!-- Open Graph -->
 <meta property="og:site_name" content="協同產品設計實習"/>
 <meta property="og:title" content="W8 教學內容"/>
-<meta property="og:description" content=""/>
+<meta property="og:description" content="第八周教學內容"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./2024-Spring-w8-blog-tutorial.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2024-04-12 11:00:00+08:00"/>
-<meta property="article:modified_time" content="2024-04-12 08:41:50.786119+08:00"/>
+<meta property="article:modified_time" content="2024-04-19 05:30:57.020579+08:00"/>
 <meta property="article:author" content="./author/41123135.html">
 <meta property="article:section" content="教學日誌"/>
 <meta property="article:tag" content="網誌編寫"/>
@@ -73,7 +74,7 @@
   "name": "W8 教學內容",
   "headline": "W8 教學內容",
   "datePublished": "2024-04-12 11:00:00+08:00",
-  "dateModified": "2024-04-12 08:41:50.786119+08:00",
+  "dateModified": "2024-04-19 05:30:57.020579+08:00",
   "author": {
     "@type": "Person",
     "name": "41123135",
@@ -81,7 +82,7 @@
   },
   "image": "./theme/images/post-bg.jpg",
   "url": "./2024-Spring-w8-blog-tutorial.html",
-  "description": ""
+  "description": "第八周教學內容"
 }
 </script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
@@ -210,7 +211,7 @@ init_mathjax();
             | <time datetime="Fri 12 April 2024">Fri 12 April 2024</time>
         </span>
         <!-- TODO : Modified check -->
-            <span class="post-meta"> | Updated on Fri 12 April 2024</span>
+            <span class="post-meta"> | Updated on Fri 19 April 2024</span>
             <div class="post-cover cover" style="background-image: url('./theme/images/post-bg.jpg')">
       </div>
     </header>
@@ -230,9 +231,48 @@ init_mathjax();
         <article class="post">
         <div class="inner">
             <section class="post-content">
-                <!-- PELICAN_END_SUMMARY -->
+                <p>第八周教學內容</p>
 
-<h1></h1>
+
+<h1>在分組倉儲編寫可以一次性更新全組子模組的檔案</h1>
+<p>我在分組倉儲更新了一個檔案 他可以一次更新全組的 不用一個一個更新</p>
+<p><a href="https://github.com/mdecd2024/2a-midag3/blob/main/all">檔案連結</a></p>
+<p>以下為檔案內容</p>
+<pre class="brush: python">
+  git submodule update --init
+
+  cd 41123122
+  git pull origin main
+  cd ..
+
+  cd 41123129
+  git pull origin main
+  cd ..
+
+  cd 41123131
+  git pull origin main
+  cd ..
+
+  cd 41123134
+  git pull origin main
+  cd ..
+
+  cd 41123135
+  git pull origin main
+  cd ..
+
+  cd 41123137
+  git pull origin main
+  cd ..
+
+  cd 41123139
+  git pull origin main
+  cd ..
+
+  cd 41123149
+  git pull origin main
+  cd ..
+</pre>
             </section>
 
             <section class="post-info">
