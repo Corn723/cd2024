@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2024-05-17T11:00:00+08:00</updated><entry><title>W13 教學內容</title><link href="./W13%2041123135.html" rel="alternate"></link><published>2024-05-17T11:00:00+08:00</published><updated>2024-05-17T05:16:12+08:00</updated><author><name>41123135</name></author><id>tag:None,2024-05-17:./W13 41123135.html</id><content type="html">&lt;p&gt;第十三週教學內容&lt;/p&gt;
-</content><category term="41123135"></category><category term="網誌編寫"></category></entry><entry><title>W12 教學內容</title><link href="./W12%2041123135.html" rel="alternate"></link><published>2024-05-10T11:00:00+08:00</published><updated>2024-05-17T05:15:48+08:00</updated><author><name>41123135</name></author><id>tag:None,2024-05-10:./W12 41123135.html</id><summary type="html">&lt;p&gt;第十二週教學內容&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2024-05-24T04:54:07+08:00</updated><entry><title>W13 教學內容</title><link href="./W13%2041123135.html" rel="alternate"></link><published>2024-05-17T11:00:00+08:00</published><updated>2024-05-24T04:54:07+08:00</updated><author><name>41123135</name></author><id>tag:None,2024-05-17:./W13 41123135.html</id><summary type="html">&lt;p&gt;第十三週教學內容&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;第十三週教學內容&lt;/p&gt;
+
+
+&lt;h1&gt;協助隊友完成足球機器人模擬&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://mde.tw/cd2024/blog/2024-cd-w12-practice.html#robot"&gt;教學網站&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;隊友遇到第一個問題是在執行下列程式時沒有下載模組&lt;/p&gt;
+&lt;p&gt;那我幫他們用pip install + 要載的模組名字 把所需要的模組都載到可攜環境&lt;/p&gt;
+&lt;p&gt;主要載了pyzmq cbor keyboard這三個模組&lt;/p&gt;
+&lt;p&gt;pip install pyzmq cbor keyboard&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+  # pip install pyzmq cbor keyboard
+  from zmqRemoteApi import RemoteAPIClient
+  from zmqRemoteApi_IPv6 import RemoteAPIClient
+  import keyboard
+  import random
+
+  client = RemoteAPIClient('localhost', 23000)
+
+  print('Program started')
+  sim = client.getObject('sim')
+  sim.startSimulation()
+  print('Simulation started')
+
+  def avoid(x,y):
+      #bubbleRob = sim.getObject('/brickRob')
+      #bubbleRob2 = sim.getObject('/brickRob2')
+      #b1=sim.getObjectPosition(bubbleRob,-1)
+      #b2=sim.getObjectPosition(bubbleRob2,-1)
+
+      #while (((b1[0]&lt;x+0.5) and (b1[0]&gt;x-0.5)) and ((b1[1]&lt;y+0.5) and (b1[1]&gt;y-0.5)))or(((b2[0]&lt;x+0.5) and (b2[0]&gt;x-0.5)) and ((b2[1]&lt;y+0.5) and (b2[1]&gt;y-0.5))):
+      #x=random.uniform(-1,1)
+      #y=random.uniform(-1,1)
+         # print(x)
+         # print(y)
+      position2= [x, y, 2]
+      ball = sim.createPureShape(1, options, size, 1, None)
+      sim.setObjectPosition(ball, -1, position2)
+
+  size = [0.1, 0.1, 0.1]
+  position = [0, 0, 2]
+  options = 8
+  def existball():
+      try:
+          Sphere= sim.getObject('/Sphere')
+      except Exception as e:
+          #print("Failed to get object: ", e)
+          return 1
+      return 0
+
+  if existball()==1:    
+      ball = sim.createPureShape(1, options, size, 1, None)
+      sim.setObjectPosition(ball, -1, position)
+      ball = sim.getObject('/Sphere')
+      sim.setObjectSpecialProperty(ball, sim.objectspecialproperty_detectable)
+
+  while True:
+
+      ball = sim.getObject('/Sphere')
+      ball_position =sim.getObjectPosition(ball,-1)
+      if ball_position[1]&lt;-1.865 or ball_position[1]&gt;1.865:
+          #sim.removeObject(ball)
+          sim.setObjectAlias(ball, 'ball')
+          ball2=sim.getObject('/ball')
+          sim.removeObject(ball2)
+          avoid(random.uniform(-1,1),random.uniform(-1,1))
+          #avoid(0,2)
+          ball = sim.getObject('/Sphere')
+          sim.setObjectSpecialProperty(ball, sim.objectspecialproperty_detectable)
+
+&lt;/pre&gt;</content><category term="41123135"></category><category term="網誌編寫"></category></entry><entry><title>W12 教學內容</title><link href="./W12%2041123135.html" rel="alternate"></link><published>2024-05-10T11:00:00+08:00</published><updated>2024-05-17T05:15:48+08:00</updated><author><name>41123135</name></author><id>tag:None,2024-05-10:./W12 41123135.html</id><summary type="html">&lt;p&gt;第十二週教學內容&lt;/p&gt;
 &lt;p&gt;這周我腸胃炎請假&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;第十二週教學內容&lt;/p&gt;
 &lt;p&gt;這周我腸胃炎請假&lt;/p&gt;
