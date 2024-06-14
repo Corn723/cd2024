@@ -10,8 +10,84 @@
 <p style="padding-left: 30px;">倉儲對應網站: <a href="https://mde.tw/cmsimde_site">https://mde.tw/cmsimde_site</a></p>
 <p style="padding-left: 30px;"></p>
 <h1>2a全員的倉儲連結</h1>
+<p><a href="https://corn723.github.io/cd2024/content/Brython.html?src=https://gist.githubusercontent.com/Corn723/2ea227f659c363e1c80c08323c2263d9/raw/4806cbadabed917b125c220163569042cc949680/W10">網址連結</a></p>
 <p></p>
-<h1>cmsimde</h1>
+<p>程式主體</p>
+<p></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import window, ajax, document, html
+
+def fetch_csv_data():
+  # CSV 檔案網址
+  url = "https://mdecd2024.github.io/2astud-2asite/downloads/2a.txt"
+  
+  def on_complete(req):
+    if req.status == 200 or req.status == 0:
+      # 讀取 CSV 檔案內容
+      content = req.text
+  
+      # 依照換行符號拆分資料
+      lines = content.split('\n')
+  
+      # 建立空列表儲存資料
+      data = []
+  
+      # 遍歷每一行資料
+      for line in lines:
+        # 忽略空白行
+        if line.strip() == "":
+          continue
+  
+        # 依照逗號拆分資料
+        items = line.split(',')
+  
+        # 將拆分後的資料加入列表
+        data.append(items)
+      
+      # 必須去除 data 的第一列標題資料, 只取序號為 1 之後的資料
+      data = data[1:]
+  
+      # 取得 html 可以插入的標註位置
+      brython_div = document["brython_div1"]
+      course_title = "cd2024"
+
+      # 逐一處理學員資料
+      index = 0
+      for items in data:
+        index += 1
+        student_id, github_username, group = items
+        
+        if github_username == "":
+          github_username = "000"
+        
+        # 建立網站和倉儲連結，使用正確的模板
+        site_url = f"https://{github_username}.github.io/{course_title}"
+        repo_url = f"https://github.com/{github_username}/{course_title}"
+        group_site_url = f"https://mdecd2024.github.io/2a-midag{group}"
+        group_repo_url = f"https://github.com/mdecd2024/2a-midag{group}"
+
+        # 添加學號, 網站, 倉儲連結和序號到 brython_div
+        brython_div &lt;= str(index) + ". " + html.A(student_id, href=site_url)
+        brython_div &lt;= " ("
+        brython_div &lt;= html.A("repo", href=repo_url)
+        brython_div &lt;= ") | " 
+        brython_div &lt;= html.A("Group Site", href=group_site_url)
+        brython_div &lt;= " | "
+        brython_div &lt;= html.A("Group Repo", href=group_repo_url)
+        brython_div &lt;= html.BR()
+
+    else:
+      print("Error:", req.text)
+  
+  # 發送 AJAX 請求
+  req = ajax.ajax()
+  req.bind('complete', on_complete)
+  req.open('GET', url, True)
+  req.set_header('content-type', 'application/x-www-form-urlencoded')
+  req.send()
+  
+# 呼叫函式讀取 CSV 資料
+fetch_csv_data()</pre>
+<p></p><h1>cmsimde</h1>
 <p><span style="background-color: #ccffcc;">SMap</span> - SiteMap - 依照階次列出網站的所有頁面.</p>
 <p><span style="background-color: #ccffcc;">EditA</span> - Edit All page - 將所有頁面放入編輯模式中, 主要用來處理頁面搬遷, 刪除或決定衝突頁面內容版本.</p>
 <p><span style="background-color: #ccffcc;">Edit</span> - Edit page - 先選擇要編輯的單一頁面後, 再點選 Edit, 即可進入單一頁面的編輯模式.</p>
